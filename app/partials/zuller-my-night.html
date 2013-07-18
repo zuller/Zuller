@@ -1,0 +1,16 @@
+<button class="btn" ng-click="category = 'bars'">ברים</button>
+<button class="btn" ng-click="category = 'parties'">מסיבות</button>
+
+<div ng-switch="category">
+  <ul ng-switch-when="bars">
+    <li ng-repeat="bar in bars">
+      {{bar.name}}
+    </li>
+  </ul>
+
+  <ul ng-switch-when="parties">
+    <li ng-repeat="party in parties">
+      {{party.name}}
+    </li>
+  </ul>
+</div>
