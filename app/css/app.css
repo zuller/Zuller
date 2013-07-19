@@ -1,23 +1,5 @@
 /* app css stylesheet */
 
-.image {
-        width: 300px;
-        height: 200px;
-
-      }
-      .image li {
-        padding:10px;
-        color:black;
-        background: #bbb;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-      }
-      ul li {
-        list-style-type: none
-      }
-
-
-/*
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -63,4 +45,3 @@ ul li {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-*/
