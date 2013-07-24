@@ -1,10 +1,27 @@
 
-html, body, #carousel, #carousel ul, #carousel li {
+html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
   position: relative;
+}
+
+#bla {
+  min-height: 100%;
+  height: 100%;
+  background-image: url(../img/zuller.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5000px
+}
+
+#bla.animate {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
 }
 
 #debug {
@@ -18,7 +35,6 @@ html, body, #carousel, #carousel ul, #carousel li {
 }
 
 #carousel {
-  background: silver;
   overflow: hidden;
   width:100%;
   -webkit-backface-visibility: hidden;
@@ -48,6 +64,8 @@ html, body, #carousel, #carousel ul, #carousel li {
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
   box-shadow: 0 0 20px rgba(0,0,0,.2);
   position: relative;
+
+  background-color: transparent;
 }
 
 #carousel li {
@@ -68,9 +86,10 @@ html, body, #carousel, #carousel ul, #carousel li {
   text-shadow: -1px -1px 0 rgba(0,0,0,.2);
 }
 
-#carousel li.pane1 { background: #42d692; }
+/*#carousel li.pane1 { background: #42d692; }
 #carousel li.pane2 { background: #4986e7; }
-#carousel li.pane3 { background: #d06b64; }
-#carousel li.pane4 { background: #cd74e6; }
-#carousel li.pane5 { background: #9fe1e7; }
+#carousel li.pane3 { background: #d06b64; }*/
 
+#carousel li.page {
+  background-color: transparent;
+}

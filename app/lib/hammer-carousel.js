@@ -115,7 +115,7 @@ function Carousel(element)
 
 
   function handleHammer(ev) {
-    console.log(ev);
+    // console.log(ev);
     // disable browser scrolling
     ev.gesture.preventDefault();
 
