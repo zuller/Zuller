@@ -1,34 +1,47 @@
-<!doctype html>
-<html lang="he" ng-app="Zuller">
+<!DOCTYPE html>
+<html ng-app="Zuller">
 <head>
-  <meta charset="utf-8">
-  <title>Zuller</title>
-  <link rel="stylesheet" href="css/app.css"/>
-  <!--
-  <link rel="stylesheet" href="lib/css/bootstrap.css">
-  -->
+  <title>Hammer.js</title>
+  <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
+
 <body>
 
-  <ul class="menu">
-    <li><a href="#/parties">Parties</a></li>
-    <li><a href="#/">Home</a></li>
-    <li><a href="#/zuller-my-night">Zuller My Night</a></li>
-  </ul>
+  <div id="carousel">
+    <ul>
+      <li class="pane1" ng-controller="PartiesCtrl">
+        <h2>parties controler</h2>
+        <ul>
+          <li ng-repeat="party in parties">{{party}}</li>
+        </ul>
+      </li>
+      <li class="pane2" ng-controller="MainCtrl"><h2>main controller</h2></li>
+      <li class="pane3" ng-controller="ZullerMyNightCtrl"><h2>zMyNgiht controller</h2></li>
+    </ul>
+  </div>
 
-  <div ng-view></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  -->
+  <!-- jQuery is just for the demo! Hammer.js works without jQuery :-) -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
   <script src="lib/angular/angular.1.1.5.js"></script>
   <script src="lib/angular-mobile.js"></script>
-  <script src="lib/angular-carousel.js"></script>
-  <link href="lib/angular-carousel.css" rel="stylesheet" type="text/css" />
+  <script src="lib/modernizr.js"></script>
+  <script src="lib/jquery.hammer.js"></script>
+  <script src="lib/hammer-carousel.js"></script>
+  <script src="lib/ga.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
+
+  <script>
+    var carousel = new Carousel("#carousel");
+    carousel.init();
+  </script>
+
 </body>
 </html>

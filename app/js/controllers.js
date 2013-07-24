@@ -7,9 +7,8 @@
 var host = 'http://zuller.herokuapp.com/api'
 
 angular.module('Zuller')
-  .controller('MainCtrl', ['$scope', function($scope) {
-    $scope.logo = 'zuller'
-    $scope.images = ['#2AFFA1', '#F31C1C', '#ddd']
+  .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.colors = ['#2AFFA1', '#F31C1C', '#ddd'];
   }])
   .controller('PartiesCtrl', ['$scope', '$http', function($scope, $http) {
     $http({ method: 'JSONP', url: host + '/parties.js?callback=JSON_CALLBACK' }).success(function(data) {
