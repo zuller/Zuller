@@ -8,14 +8,16 @@ var host = 'http://zuller.herokuapp.com/api'
 
 angular.module('Zuller')
   .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
-    $scope.colors = ['#2AFFA1', '#F31C1C', '#ddd'];
+    $scope.templateUrl = 'partials/main.html';
   }])
   .controller('PartiesCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.templateUrl = 'partials/parties.html';
     $http({ method: 'JSONP', url: host + '/parties.js?callback=JSON_CALLBACK' }).success(function(data) {
       $scope.parties = data;
     });
   }])
   .controller('ZullerMyNightCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.templateUrl = 'partials/zuller-my-night.html';
     $http({ method: 'JSONP', url: host + '/zuller_my_night.js?callback=JSON_CALLBACK' }).success(function(data) {
       $scope.parties = data.parties;
       $scope.bars = data.bars;

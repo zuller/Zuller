@@ -1,4 +1,3 @@
-
 html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   min-height: 100%;
   height: 100%;
@@ -14,7 +13,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5000px
+  width: 1500px;
 }
 
 #bla.animate {

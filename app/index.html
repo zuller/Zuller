@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="he" ng-app="Zuller">
 <head>
-  <title>Hammer.js</title>
+  <title>Zuller</title>
   <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -13,33 +13,11 @@
     <div id="bla"></div>
     <div id="carousel">
       <ul>
-        <li class="page pane1" ng-controller="PartiesCtrl">
-          <h2>parties controler</h2>
-          <ul>
-            <li ng-repeat="party in parties">{{party.name}}</li>
-          </ul>
+        <li class="page pane1" ng-controller="PartiesCtrl" ng-include="templateUrl">
         </li>
-        <li class="page pane2" ng-controller="MainCtrl">
-          <h2>main controller</h2>
+        <li class="page pane2" ng-controller="MainCtrl" ng-include="templateUrl">
         </li>
-        <li class="page pane3" ng-controller="ZullerMyNightCtrl">
-          <h2>zMyNgiht controller</h2>
-          <button class="btn" ng-click="category = 'bars'">ברים</button>
-          <button class="btn" ng-click="category = 'parties'">מסיבות</button>
-
-          <div ng-switch="category">
-            <ul ng-switch-when="bars">
-              <li ng-repeat="bar in bars">
-                {{bar.name}}
-              </li>
-            </ul>
-
-            <ul ng-switch-when="parties">
-              <li ng-repeat="party in parties">
-                {{party.name}}
-              </li>
-            </ul>
-          </div>
+        <li class="page pane3" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
         </li>
       </ul>
     </div>
@@ -47,7 +25,7 @@
 
 
   <!-- jQuery is just for the demo! Hammer.js works without jQuery :-) -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
   <script src="lib/angular/angular.1.1.5.js"></script>
   <script src="lib/angular-mobile.js"></script>
