@@ -72,6 +72,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   overflow: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translate3d(0,0,0);
+  color: white;
 }
 
 /*#carousel li.pane1 { background: #42d692; }
