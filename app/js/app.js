@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('Zuller', ['Zuller.filters', 'Zuller.services', 'Zuller.directives','angular-carousel'])
+angular.module('Zuller', ['Zuller.filters', 'Zuller.services', 'Zuller.directives'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', { templateUrl: 'partials/main.html', controller: 'MainCtrl' })
@@ -10,3 +10,6 @@ angular.module('Zuller', ['Zuller.filters', 'Zuller.services', 'Zuller.directive
       .when('/parties', { templateUrl: 'partials/parties.html', controller: 'PartiesCtrl' })
       .otherwise({ redirectTo: '/' });
   }]);
+
+
+
