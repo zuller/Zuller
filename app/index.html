@@ -5,23 +5,12 @@
   <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css/z-my-night.css">
 </head>
 
 <body>
 
-  <div id="wrapper">
-    <div id="bla"></div>
-    <div id="carousel">
-      <ul>
-        <li class="page pane1" ng-controller="PartiesCtrl" ng-include="templateUrl">
-        </li>
-        <li class="page pane2" ng-controller="MainCtrl" ng-include="templateUrl">
-        </li>
-        <li class="page pane3" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
-        </li>
-      </ul>
-    </div>
-  </div>
+<div ng-view></div>
 
 
   <!-- jQuery is just for the demo! Hammer.js works without jQuery :-) -->

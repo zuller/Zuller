@@ -22,5 +22,9 @@ angular.module('Zuller')
       $scope.parties = data.parties;
       $scope.bars = data.bars;
       $scope.category = 'bars';
-    });
+    })
+  }])
+  .controller('DetailedCtrl', ['$scope','$routeParams', function($scope, $routeParams){
+    $scope.partyData = partyData;
+    $scope.partyId = $routeParams.partyId;
   }]);

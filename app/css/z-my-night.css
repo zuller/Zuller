@@ -1,0 +1,63 @@
+#z-my-night-ctrl h2 {
+	color: red;
+}
+/*
+#z-my-night-ctrl .party {
+ width: 12em;
+ border-right: 1px solid #000;
+ padding: 0 0 1em 0;
+ margin-bottom: 1em;
+ font-family: 'Trebuchet MS', 'Lucida Grande',
+   Verdana, Lucida, Geneva, Helvetica, 
+   Arial, sans-serif;
+ background-color: #90bade;
+ color: #333;
+ }
+
+ #z-my-night-ctrl .bar {
+ 	#button {
+ width: 12em;
+ border-right: 1px solid #000;
+ padding: 0 0 1em 0;
+ margin-bottom: 1em;
+ font-family: 'Trebuchet MS', 'Lucida Grande',
+   Verdana, Lucida, Geneva, Helvetica, 
+   Arial, sans-serif;
+ background-color: #90bade;
+ color: #333;
+ 
+ }
+*/
+ * {margin: 0; padding: 0;}
+ 
+#z-my-night-ctrl div {
+  margin: 20px;
+}
+ 
+#z-my-night-ctrl ul {
+  list-style-type: none;
+  width: 500px;
+}
+ 
+#z-my-night-ctrl h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+ 
+#z-my-night-ctrl li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+ 
+#z-my-night-ctrl li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+ 
+#z-my-night-ctrl li {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+#z-my-night-ctrl li:hover {
+  background: #eee;
+  cursor: pointer;
+}
