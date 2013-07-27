@@ -7,8 +7,10 @@
 var host = 'http://zuller.herokuapp.com/api'
 
 angular.module('Zuller')
-  .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
-    $scope.templateUrl = 'partials/main.html';
+  .controller('MainCtrl', ['$scope', function($scope) {
+  }])
+  .controller('HomeCtrl', ['$scope', function($scope) {
+    $scope.templateUrl = 'partials/home.html';
   }])
   .controller('PartiesCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.templateUrl = 'partials/parties.html';

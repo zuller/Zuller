@@ -12,7 +12,7 @@ function debug(text) {
   for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
     window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
     window.cancelAnimationFrame =
-      window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+      window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
   }
 
   if (!window.requestAnimationFrame)
@@ -37,10 +37,11 @@ function debug(text) {
 * super simple carousel
 * animation between panes happens with css transitions
 */
-function Carousel(element)
+function Carousel(element, bgElement)
 {
   var self = this;
   element = $(element);
+  bgElement = $(bgElement);
 
   var container = $(">ul", element);
   var panes = $(">ul>li", element);
@@ -72,7 +73,7 @@ function Carousel(element)
     panes.each(function() {
       $(this).width(pane_width);
     });
-    container.width(pane_width*pane_count);
+    container.width(pane_width * pane_count);
   };
 
 
@@ -80,41 +81,45 @@ function Carousel(element)
    * show pane by index
    * @param   {Number}    index
    */
-  this.showPane = function( index ) {
+  this.showPane = function(index) {
     // between the bounds
-    index = Math.max(0, Math.min(index, pane_count-1));
+    index = Math.max(0, Math.min(index, pane_count - 1));
     current_pane = index;
 
-    var offset = -((100/pane_count)*current_pane);
-    setContainerOffset(offset, true);
+    var offset = -((100 / pane_count) * current_pane);
+
+    self.setContainerOffset(container, 1, offset, true);
+    self.setContainerOffset(bgElement, 3, offset, true);
   };
 
 
-  function setContainerOffset(percent, animate) {
-    container.removeClass("animate");
+  this.setContainerOffset = function(moveingElement, swipeDelta, percent, animate) {
+    moveingElement.removeClass("animate");
+
+    var transformedPercent = percent / swipeDelta;
 
     if(animate) {
-      container.addClass("animate");
+      moveingElement.addClass("animate");
     }
 
     if(Modernizr.csstransforms3d) {
-      container.css("transform", "translate3d("+ percent +"%,0,0) scale3d(1,1,1)");
+      moveingElement.css("transform", "translate3d(" + transformedPercent + "%,0,0) scale3d(1,1,1)");
     }
     else if(Modernizr.csstransforms) {
-      container.css("transform", "translate("+ percent +"%,0)");
+      moveingElement.css("transform", "translate(" + transformedPercent + "%,0)");
     }
     else {
-      var px = ((pane_width*pane_count) / 100) * percent;
-      container.css("left", px+"px");
+      var px = ((pane_width*pane_count) / 100) * transformedPercent;
+      moveingElement.css("left", px + "px");
     }
   }
 
-  this.next = function() { return this.showPane(current_pane+1, true); };
-  this.prev = function() { return this.showPane(current_pane-1, true); };
+  this.next = function() { return this.showPane(current_pane + 1, true); };
+  this.prev = function() { return this.showPane(current_pane - 1, true); };
 
 
 
-  function handleHammer(ev) {
+  this.handleHammer = function(ev) {
     // console.log(ev);
     // disable browser scrolling
     ev.gesture.preventDefault();
@@ -128,11 +133,12 @@ function Carousel(element)
 
         // slow down at the first and last pane
         if((current_pane == 0 && ev.gesture.direction == Hammer.DIRECTION_RIGHT) ||
-            (current_pane == pane_count-1 && ev.gesture.direction == Hammer.DIRECTION_LEFT)) {
+            (current_pane == pane_count - 1 && ev.gesture.direction == Hammer.DIRECTION_LEFT)) {
             drag_offset *= .4;
         }
 
-        setContainerOffset(drag_offset + pane_offset);
+        self.setContainerOffset(container, 1, drag_offset + pane_offset);
+        self.setContainerOffset(bgElement, 3, drag_offset + pane_offset);
         break;
 
       case 'swipeleft':
@@ -147,7 +153,7 @@ function Carousel(element)
 
       case 'release':
         // more then 50% moved, navigate
-        if(Math.abs(ev.gesture.deltaX) > pane_width/2) {
+        if(Math.abs(ev.gesture.deltaX) > pane_width / 2) {
             if(ev.gesture.direction == 'right') {
                 self.prev();
             } else {
@@ -162,5 +168,5 @@ function Carousel(element)
   }
 
   element.hammer({ drag_lock_to_axis: true })
-    .on("release dragleft dragright swipeleft swiperight", handleHammer);
+    .on("release dragleft dragright swipeleft swiperight", self.handleHammer);
 }

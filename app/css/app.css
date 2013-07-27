@@ -6,7 +6,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   position: relative;
 }
 
-#bla {
+#bg-wrapper {
   min-height: 100%;
   height: 100%;
   background-image: url(../img/zuller.png);
@@ -16,7 +16,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   width: 1500px;
 }
 
-#bla.animate {
+#bg-wrapper.animate {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   -o-transition: all .3s;
