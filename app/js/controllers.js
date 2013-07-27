@@ -8,7 +8,6 @@ var host = 'http://zuller.herokuapp.com/api'
 
 angular.module('Zuller')
   .controller('MainCtrl', ['$scope', function($scope) {
-    $scope.ctrls = ['HomeCtrl', 'PartiesCtrl', 'ZullerMyNightCtrl'];
   }])
   .controller('HomeCtrl', ['$scope', function($scope) {
     $scope.templateUrl = 'partials/home.html';
