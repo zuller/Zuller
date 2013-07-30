@@ -1,12 +1,23 @@
 <div id="wrapper">
   <div id="bg-wrapper"></div>
   <div id="carousel">
-    <ul>
-      <li class="page pane1" ng-controller="PartiesCtrl" ng-include="templateUrl">
+    <ul class="horizontal">
+      <li class="page" ng-controller="PartiesCtrl" ng-include="templateUrl">
       </li>
-      <li class="page pane2" ng-controller="HomeCtrl" ng-include="templateUrl">
+      <li class="page home-page" ng-controller="HomeCtrl" ng-include="templateUrl">
       </li>
-      <li id="z-my-night-ctrl" class="page pane3" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
+      <li class="page" id="z-my-night-ctrl" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
+      </li>
+    </ul>
+    <ul class="vertical">
+      <li class="page pane1">
+        "Profile"
+      </li>
+      <li class="page pane2 home-page home-placeholder">
+        "Home"
+      </li>
+      <li class="page pane3">
+        "Search"
       </li>
     </ul>
   </div>
@@ -16,5 +27,6 @@
   $(document).ready(function(){
     var carousel = new Carousel("#carousel", "#bg-wrapper");
     carousel.init();
+    // carousel.showHorizontalPane(1);
   });
 </script>

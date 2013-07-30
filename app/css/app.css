@@ -4,16 +4,23 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   padding: 0;
   margin: 0;
   position: relative;
+  width: 316px;
+  height: 353px;
+}
+
+#wrapper {
+  border: 2px solid rgb(245, 0, 104);
+  overflow: hidden;
 }
 
 #bg-wrapper {
   min-height: 100%;
   height: 100%;
-  background-image: url(../img/zuller.png);
+  background-image: url(../img/bg72.png);
   position: absolute;
   top: 0;
-  left: 0;
-  width: 1500px;
+  left: -120px;
+  width: 300%;
 }
 
 #bg-wrapper.animate {
@@ -21,16 +28,6 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   -moz-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
-}
-
-#debug {
-  position: fixed;
-  background: #fff;
-  padding: 5px;
-  color: #000;
-  top: 0;
-  left: 0;
-  z-index: 1337;
 }
 
 #carousel {
@@ -67,7 +64,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   background-color: transparent;
 }
 
-#carousel > ul > li {
+#carousel > ul.horizontal > li {
   float: left;
   overflow: hidden;
   -webkit-transform-style: preserve-3d;
@@ -75,10 +72,35 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   color: white;
 }
 
-/*#carousel li.pane1 { background: #42d692; }
-#carousel li.pane2 { background: #4986e7; }
-#carousel li.pane3 { background: #d06b64; }*/
+#carousel > ul.vertical > li {
+  /*float: right;*/
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translate3d(0,0,0);
+  color: white;
+}
+
+#carousel .vertical li.pane1 {
+  background: red;
+  /*height: 353px !important;*/
+}
+#carousel .vertical li.pane2 {
+  background: orange;
+  /*height: 353px !important;*/
+}
+#carousel .vertical li.pane3 {
+  background: green;
+  /*height: 353px !important;*/
+}
+
+.vertical .page {
+  /*width: 100% !important;*/
+  height: 33% !important;
+  /*background-color: red !important;*/
+}
 
 #carousel li.page {
   background-color: transparent;
+  width: 316px !important;
+  /*height: 353px !important;*/
 }
