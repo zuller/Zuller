@@ -6,22 +6,18 @@
 
 <div ng-switch="category">
   <ul ng-switch-when="bars">
-    <li class="bar" ng-repeat="bar in bars" ng-click="setCurrentBar({{bar}})">
-      <a href="#/bars/{{bar._id}}">
+    <li class="bar" ng-repeat="bar in bars" ng-click="onBarClicked({{bar}})">
       <img ng-src="{{bar.logo_url}}">
       <h3>{{bar.name}}</h3>
       <p>{{bar.min_age}}</p>
-      </a>
     </li>
   </ul>
 
   <ul ng-switch-when="parties">
-    <li class="party" ng-repeat="party in parties" ng-click="setCurrentParty({{party}})">
-    <a href="#/parties/{{party._id}}">
+    <li class="party" ng-repeat="party in parties" ng-click="onPartyClicked({{party}})">
       <img ng-src="{{party.logo_url}}">
       <h3>{{party.name}}</h3>
       <p>{{party.min_age}}</p>
-    </a>
     </li>
   </ul>
 </div>
