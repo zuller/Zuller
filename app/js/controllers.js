@@ -18,15 +18,23 @@ angular.module('Zuller')
       $scope.parties = data;
     });
   }])
-  .controller('ZullerMyNightCtrl', ['$scope', '$http', function($scope, $http) {
+  .controller('ZullerMyNightCtrl', ['$scope', '$http', 'sharedProperties',function($scope, $http, sharedProperties) {
     $scope.templateUrl = 'partials/zuller-my-night.html';
     $http({ method: 'JSONP', url: host + '/zuller_my_night.js?callback=JSON_CALLBACK' }).success(function(data) {
       $scope.parties = data.parties;
       $scope.bars = data.bars;
       $scope.category = 'bars';
+      $scope.setCurrentParty = function(party){
+        sharedProperties.setCurrentParty(party);
+      };
+      $scope.setCurrentBar = function(bar){
+        sharedProperties.setCurrentBar(bar);
+      };
     })
   }])
-  .controller('DetailedCtrl', ['$scope','$routeParams', function($scope, $routeParams){
-    $scope.partyData = partyData;
-    $scope.partyId = $routeParams.partyId;
+  .controller('DetailedPartyCtrl', ['$scope','$routeParams', 'sharedProperties', function($scope, $routeParams,sharedProperties){
+     $scope.party = sharedProperties.getCurrentParty();
+  }])
+  .controller('DetailedBarCtrl', ['$scope','$routeParams','sharedProperties', function($scope, $routeParams,sharedProperties){
+     $scope.bar = sharedProperties.getCurrentBar();
   }]);

@@ -6,8 +6,9 @@ angular.module('Zuller', ['Zuller.filters', 'Zuller.services', 'Zuller.directive
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', { templateUrl: 'partials/main.html', controller: 'MainCtrl' })
-      .when('/parties/:partyId',{ templateUrl: 'partials/detailed.html', controller: 'DetailedCtrl'})
-	  .otherwise({ redirectTo: '/' });
+      .when('/bars/:barId',{ templateUrl: 'partials/detailed-bar.html', controller: 'DetailedBarCtrl'})
+      .when('/parties/:partyId',{ templateUrl: 'partials/detailed-party.html', controller: 'DetailedPartyCtrl'})
+	  .otherwise({ redirectTo: '/'});
   }]);
 
 
