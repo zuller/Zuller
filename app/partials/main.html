@@ -1,31 +1,36 @@
-<div id="wrapper">
-  <div id="bg-wrapper"></div>
-  <div id="carousel">
-    <ul class="horizontal">
-      <li class="page" ng-controller="PartiesCtrl" ng-include="templateUrl">
-      </li>
-      <li class="page home-page" ng-controller="HomeCtrl" ng-include="templateUrl">
-      </li>
-      <li class="page" id="z-my-night-ctrl" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
-      </li>
-    </ul>
-    <ul class="vertical">
-      <li class="page pane1">
-        "Profile"
-      </li>
-      <li class="page pane2 home-page home-placeholder">
-        "Home"
-      </li>
-      <li class="page pane3">
-        "Search"
-      </li>
-    </ul>
-  </div>
+<div id="vertical-carousel">
+  <div id="vertical-bg-carousel"></div>
+  <ul class="vertical">
+    <li class="page top-pane">
+      "Profile"
+    </li>
+    <li class="page">
+      <div id="bg-carousel"></div>
+      <div id="carousel">
+        <ul class="horizontal">
+          <li class="page left-pane" ng-controller="PartiesCtrl" ng-include="templateUrl">
+
+          </li>
+          <li class="page center-pane" ng-controller="HomeCtrl" ng-include="templateUrl">
+
+          </li>
+          <li class="page right-pane" id="z-my-night-ctrl" ng-controller="ZullerMyNightCtrl" ng-include="templateUrl">
+
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="page bottom-pane">
+      "Search"
+    </li>
+  </ul>
 </div>
 
 <script>
   $(document).ready(function(){
-    var carousel = new Carousel("#carousel", "#bg-wrapper");
-    carousel.init();
+    var verticalCarousel = new VerticalCarousel("#vertical-carousel");
+    verticalCarousel.init();
+    var horizontalCarousel = new HorizontalCarousel("#carousel", "#bg-carousel", verticalCarousel);
+    horizontalCarousel.init();
   });
 </script>

@@ -1,19 +1,26 @@
-html, body, #wrapper, #carousel, #carousel ul, #carousel li {
-  min-height: 100%;
-  height: 100%;
+html, body {
+}
+
+#vertical-carousel, #vertical-carousel > ul, #vertical-carousel > ul > li {
+  /*height: 100%;*/
   padding: 0;
   margin: 0;
   position: relative;
-  width: 316px;
-  height: 353px;
+  width: 320px;
+  height: 411px;
 }
 
-#wrapper {
-  border: 2px solid rgb(245, 0, 104);
-  overflow: hidden;
+#carousel, #carousel > ul, #carousel > li {
+  min-height: 100%;
+  /*height: 100%;*/
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 320px;
+  height: 411px;
 }
 
-#bg-wrapper {
+#bg-carousel {
   min-height: 100%;
   height: 100%;
   background-image: url(../img/bg72.png);
@@ -23,7 +30,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   width: 300%;
 }
 
-#bg-wrapper.animate {
+#bg-carousel.animate {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   -o-transition: all .3s;
@@ -33,6 +40,7 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
 #carousel {
   overflow: hidden;
   width:100%;
+  top: -18px;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
   -webkit-transform-style: preserve-3d;
@@ -55,16 +63,15 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
 }
-
 #carousel > ul {
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
   box-shadow: 0 0 20px rgba(0,0,0,.2);
   position: relative;
 
-  background-color: transparent;
+  /*background-color: transparent;*/
 }
 
-#carousel > ul.horizontal > li {
+#carousel > ul > li {
   float: left;
   overflow: hidden;
   -webkit-transform-style: preserve-3d;
@@ -72,35 +79,64 @@ html, body, #wrapper, #carousel, #carousel ul, #carousel li {
   color: white;
 }
 
-#carousel > ul.vertical > li {
-  /*float: right;*/
+#vertical-carousel {
+  overflow: hidden;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+  -webkit-transform-style: preserve-3d;
+}
+
+#vertical-carousel > ul.animate {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+#vertical-carousel > ul {
+  transform: translate3d(0%,0,0) scale3d(1,1,1);
+  -o-transform: translate3d(0%,0,0) scale3d(1,1,1);
+  -ms-transform: translate3d(0%,0,0) scale3d(1,1,1);
+  -moz-transform: translate3d(0%,0,0) scale3d(1,1,1);
+  -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+}
+
+#vertical-carousel > ul {
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
+  box-shadow: 0 0 20px rgba(0,0,0,.2);
+  position: relative;
+  /*background-color: transparent;*/
+}
+
+#vertical-carousel > ul > li {
   overflow: hidden;
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translate3d(0,0,0);
   color: white;
 }
 
-#carousel .vertical li.pane1 {
-  background: red;
-  /*height: 353px !important;*/
+li.left-pane {
+  background-image: url(../img/left-pane.png);
+  height: 411px;
 }
-#carousel .vertical li.pane2 {
-  background: orange;
-  /*height: 353px !important;*/
+li.right-pane {
+  background-image: url(../img/right-pane.png);
+  height: 411px;
 }
-#carousel .vertical li.pane3 {
-  background: green;
-  /*height: 353px !important;*/
+li.top-pane {
+  background-color: rgb(2,0,26);
+  background-image: url(../img/top-pane.png);
+  height: 411px;
 }
-
-.vertical .page {
-  /*width: 100% !important;*/
-  height: 33% !important;
-  /*background-color: red !important;*/
+li.center-pane {
+  background-image: url(../img/center-pane.png);
+  height: 411px;
 }
-
-#carousel li.page {
-  background-color: transparent;
-  width: 316px !important;
-  /*height: 353px !important;*/
+li.bottom-pane {
+  background-image: url(../img/bg-bottom-72.png);
+  height: 411px;
 }
