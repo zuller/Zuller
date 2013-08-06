@@ -126,8 +126,8 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
 
     switch(ev.type) {
       // horizontal gestures
-      case 'dragright':
-      case 'dragleft':
+      case 'dragright': {}
+      case 'dragleft': {
         // stick to the finger
         var pane_offset = -(100 / pane_count) * current_pane;
         var drag_offset = ((100 / pane_width) * ev.gesture.deltaX) / pane_count;
@@ -141,18 +141,23 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
         self.setContainerOffset(container, 1, drag_offset + pane_offset);
         self.setContainerOffset(bgElement, 1.5, drag_offset + pane_offset);
         break;
+      }
 
-      case 'swipeleft':
-        self.next();
-        ev.gesture.stopDetect();
-        break;
+      case 'swipeleft': {
+          verticalCarousel.showCurrentPane()
+          self.next();
+          ev.gesture.stopDetect();
+          break;
+      }
 
-      case 'swiperight':
+      case 'swiperight': {
+        verticalCarousel.showCurrentPane()
         self.prev();
         ev.gesture.stopDetect();
         break;
+      }
 
-      case 'release':
+      case 'release': {
         // more then 50% moved, navigate
         if(Math.abs(ev.gesture.deltaX) > pane_width / 2) {
           if(ev.gesture.direction == Hammer.DIRECTION_RIGHT) {
@@ -165,6 +170,7 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
           self.showPane(current_pane, true);
         }
         break;
+      }
     }
   }
 

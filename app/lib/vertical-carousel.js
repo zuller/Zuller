@@ -15,7 +15,7 @@ function VerticalCarousel(element)
   var pane_count = panes.length;
 
   var current_pane = 0;
-
+  this.dragging = false;
   /**
    * initial
    */
@@ -55,6 +55,10 @@ function VerticalCarousel(element)
     setContainerOffset(offset, animate);
   };
 
+  this.showCurrentPane = function() {
+    self.showPane(current_pane, true);
+  }
+
   function setContainerOffset(percent, animate) {
     container.removeClass("animate");
 
@@ -83,11 +87,18 @@ function VerticalCarousel(element)
     // console.log(ev);
     // disable browser scrolling
     ev.gesture.preventDefault();
-    if (!carouselEnable) return;
 
+    if (!carouselEnable) {
+      if (ev.type === 'release') {
+        self.showPane(current_pane, true);
+      }
+      return;
+    }
+    // this.dragging = false;
     switch(ev.type) {
-      case 'dragup':
-      case 'dragdown':
+      case 'dragup': {}
+      case 'dragdown': {
+        this.dragging = true;
         // stick to the finger
         // debugger
         var pane_offset = -(100 / pane_count) * current_pane;
@@ -101,18 +112,24 @@ function VerticalCarousel(element)
 
         setContainerOffset(drag_offset + pane_offset);
         break;
+      }
 
-      case 'swipedown':
+      case 'swipedown': {
+        this.dragging = false;
         self.prev();
         ev.gesture.stopDetect();
         break;
+      }
 
-      case 'swipeup':
+      case 'swipeup': {
+        this.dragging = false;
         self.next();
         ev.gesture.stopDetect();
         break;
+      }
 
-      case 'release':
+      case 'release': {
+        this.dragging = false;
         // more then 50% moved, navigate
         if(Math.abs(ev.gesture.deltaY) > pane_height / 2) {
           if(ev.gesture.direction == 'up') {
@@ -125,8 +142,10 @@ function VerticalCarousel(element)
           self.showPane(current_pane, true);
         }
         break;
+      }
     }
   }
+
 
   element.hammer({ drag_lock_to_axis: true })
     .on("release dragdown dragup swipedown swipeup", handleHammer);
