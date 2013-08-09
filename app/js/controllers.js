@@ -7,6 +7,8 @@
 var host = 'http://zuller.herokuapp.com/api'
 
 angular.module('Zuller')
+  .controller('LoginCtrl', ['$scope', function($scope) {
+  }])
   .controller('MainCtrl', ['$scope', function($scope) {
   }])
   .controller('HomeCtrl', ['$scope', function($scope) {

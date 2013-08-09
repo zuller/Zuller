@@ -120,7 +120,6 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
   this.prev = function() { return this.showPane(current_pane - 1, true); };
 
   function handleHammer(ev) {
-    // console.log(ev);
     // disable browser scrolling
     ev.gesture.preventDefault();
 
@@ -144,10 +143,10 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
       }
 
       case 'swipeleft': {
-          verticalCarousel.showCurrentPane()
-          self.next();
-          ev.gesture.stopDetect();
-          break;
+        verticalCarousel.showCurrentPane()
+        self.next();
+        ev.gesture.stopDetect();
+        break;
       }
 
       case 'swiperight': {
@@ -162,13 +161,14 @@ function HorizontalCarousel(element, bgElement, verticalCarousel)
         if(Math.abs(ev.gesture.deltaX) > pane_width / 2) {
           if(ev.gesture.direction == Hammer.DIRECTION_RIGHT) {
             self.prev();
-          } else {
+          } else if(ev.gesture.direction == Hammer.DIRECTION_LEFT) {
             self.next();
+          } else {
+            self.showPane(current_pane, true);
           }
-        }
-        else {
+        } else {
           self.showPane(current_pane, true);
-        }
+        };
         break;
       }
     }
